@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Usuários - iLunch</title>
+
+    <!-- Custom fonts -->
+    <link
+      rel="stylesheet"
+      href="../../public/vendor/fontawesome-free/css/all.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../../public/css/sb-admin-2.css" />
+    <link
+      rel="stylesheet"
+      href="../../public/vendor/datatables/dataTables.bootstrap4.min.css"
+    />
+  </head>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          href="#"
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+        >
+          <div class="sidebar-brand-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">iLunch<sup> beta</sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Register Lunch Option -->
+        <li class="nav-item">
+          <a href="options.html" class="nav-link">
+            <i class="fas fa-edit"></i>
+            <span>Minhas opções</span>
+          </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Admin.</div>
+
+        <!-- Nav Item - Users -->
+        <li class="nav-item active">
+          <a href="#" class="nav-link">
+            <i class="fas fa-users"></i>
+            <span>Usuários</span>
+          </a>
+        </li>
+
+        <!-- Nav Item - Menu -->
+        <li class="nav-item">
+          <a href="menus.html" class="nav-link">
+            <i class="fas fa-book-open"></i>
+            <span>Cardápios</span>
+          </a>
+        </li>
+
+        <!-- Nav Item - Reports Collapse Menu -->
+        <li class="nav-item">
+          <a
+            href="#"
+            class="nav-link collapsed"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-file-excel"></i>
+            <span>Relatórios</span>
+          </a>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Pedidos de refeição:</h6>
+              <a href="#" class="collapse-item">Resumo</a>
+              <a href="#" class="collapse-item">Analítico</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+
+          <!-- prettier-ignore -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <div class="topbar-divider d-none d-sm-block"></div>
+
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    Bucky Barnes
+                  </span>
+                  <img
+                    src="../../public/img/undraw_profile_2.svg"
+                    class="img-profile rounded-circle"
+                  />
+                </a>
+
+                <!-- Dropdown - User Information -->
+                <div
+                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown"
+                >
+                  <a href="#" class="dropdown-item">
+                    <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Alterar senha
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    href="#"
+                    class="dropdown-item"
+                    data-toggle="modal"
+                    data-target="#logoutModal"
+                  >
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-800">Usuários</h1>
+            <hr />
+
+            <!-- Collapsable User Card -->
+            <div class="card shadow mb-4">
+              <!-- Card Header - Accordion -->
+              <a
+                href="#collapseCardExample"
+                class="d-block card-header py-3"
+                data-toggle="collapse"
+                role="button"
+                aria-expanded="true"
+                aria-controls="collapseCardExample"
+              >
+                <h6 class="m-0 font-weight-bold text-primary">
+                  <i class="fas fa-plus"></i>
+                  &nbsp;Adicionar
+                </h6>
+              </a>
+
+              <!-- Card Content - Collapse -->
+              <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                  <form class="user">
+                    <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="txtFirstName"
+                          placeholder="Nome"
+                        />
+                      </div>
+                      <div class="col-sm-6">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="txtLastName"
+                          placeholder="Sobrenome"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control form-control-user"
+                        id="txtEmail"
+                        placeholder="E-mail"
+                      />
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="custom-control custom-checkbox small">
+                          <input
+                            type="checkbox"
+                            class="custom-control-input"
+                            id="chkActive"
+                            checked
+                          />
+                          <!-- prettier-ignore -->
+                          <label for="chkActive" class="custom-control-label">Ativo</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="custom-control custom-checkbox small">
+                          <input
+                            type="checkbox"
+                            class="custom-control-input"
+                            id="chkAdmin"
+                          />
+                          <!-- prettier-ignore -->
+                          <label for="chkAdmin" class="custom-control-label">Administrador</label>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <a href="#" class="btn btn-primary btn-icon-split">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="text">Salvar</span>
+                    </a>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- User DataTable -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                  <i class="fas fa-list-ul"></i>
+                  &nbsp;Usuários
+                </h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered text-center"
+                    id="pageDataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Admin.</th>
+                        <th>Ativo</th>
+                        <th>Editar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Bucky Barnes</td>
+                        <td>winter.soldier@avengers.com</td>
+                        <td>
+                          <i class="far fa-check-square"></i>
+                        </td>
+                        <td>
+                          <i class="far fa-check-square"></i>
+                        </td>
+                        <td>
+                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Steve Rogers</td>
+                        <td>capitain.america@avengers.com</td>
+                        <td><i class="far fa-square"></i></td>
+                        <td><i class="far fa-square"></i></td>
+                        <td>
+                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Sam Wilson</td>
+                        <td>falcon@avengers.com</td>
+                        <td><i class="far fa-square"></i></td>
+                        <td>
+                          <i class="far fa-check-square"></i>
+                        </td>
+                        <td>
+                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluig -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; iLunch 2021</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button -->
+    <a href="#page-top" class="scroll-to-top rounded">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal -->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Pronto para sair?</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span>x</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Clique no botão "Logout" para encerrar sua sessão.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <a href="login.html" class="btn btn-primary">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../public/vendor/jquery/jquery.min.js"></script>
+    <script src="../../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript -->
+    <script src="../../public/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages -->
+    <script src="../../public/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../../public/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../../public/js/demo/datatables-demo.js"></script>
+  </body>
+</html>
