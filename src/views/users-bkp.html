@@ -12,7 +12,7 @@
     <!-- Custom fonts -->
     <link
       rel="stylesheet"
-      href="/vendor/fontawesome-free/css/all.min.css"
+      href="../../public/vendor/fontawesome-free/css/all.min.css"
       type="text/css"
     />
     <link
@@ -21,10 +21,10 @@
     />
 
     <!-- Custom styles -->
-    <link rel="stylesheet" href="/css/sb-admin-2.css" />
+    <link rel="stylesheet" href="../../public/css/sb-admin-2.css" />
     <link
       rel="stylesheet"
-      href="/vendor/datatables/dataTables.bootstrap4.min.css"
+      href="../../public/vendor/datatables/dataTables.bootstrap4.min.css"
     />
   </head>
   <body id="page-top">
@@ -151,7 +151,7 @@
                     Bucky Barnes
                   </span>
                   <img
-                    src="/img/undraw_profile_2.svg"
+                    src="../../public/img/undraw_profile_2.svg"
                     class="img-profile rounded-circle"
                   />
                 </a>
@@ -205,80 +205,70 @@
               </a>
 
               <!-- Card Content - Collapse -->
-              <form action="/save-user" id="create-user" method="POST">
-                <div class="collapse show" id="collapseCardExample">
-                  <div class="card-body">
-                    <form class="user">
-                      <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                          <input
-                            type="text"
-                            class="form-control form-control-user"
-                            name="name"
-                            id="name"
-                            placeholder="Nome"
-                          />
-                        </div>
-                        <div class="col-sm-6">
-                          <input
-                            type="text"
-                            class="form-control form-control-user"
-                            id="txtLastName"
-                            placeholder="Sobrenome"
-                          />
-                        </div>
-                      </div>
-                      <div class="form-group">
+              <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                  <form class="user">
+                    <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
                         <input
-                          type="email"
+                          type="text"
                           class="form-control form-control-user"
-                          name="email"
-                          id="email"
-                          placeholder="E-mail"
+                          id="txtFirstName"
+                          placeholder="Nome"
                         />
                       </div>
-                      <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                          <div class="custom-control custom-checkbox small">
-                            <input
-                              type="checkbox"
-                              class="custom-control-input"
-                              name="isActivated"
-                              id="isActivated"
-                              checked
-                            />
-                            <!-- prettier-ignore -->
-                            <label for="chkActive" class="custom-control-label">Ativo</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="custom-control custom-checkbox small">
-                            <input
-                              type="checkbox"
-                              class="custom-control-input"
-                              name="isAdmin"
-                              id="isAdmin"
-                            />
-                            <!-- prettier-ignore -->
-                            <label for="chkAdmin" class="custom-control-label">Administrador</label>
-                          </div>
+                      <div class="col-sm-6">
+                        <input
+                          type="text"
+                          class="form-control form-control-user"
+                          id="txtLastName"
+                          placeholder="Sobrenome"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control form-control-user"
+                        id="txtEmail"
+                        placeholder="E-mail"
+                      />
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="custom-control custom-checkbox small">
+                          <input
+                            type="checkbox"
+                            class="custom-control-input"
+                            id="chkActive"
+                            checked
+                          />
+                          <!-- prettier-ignore -->
+                          <label for="chkActive" class="custom-control-label">Ativo</label>
                         </div>
                       </div>
-                      <hr />
-                      <button
-                        type="submit"
-                        form="create-user"
-                        class="btn btn-primary btn-icon-split"
-                      >
-                        <span class="icon text-white-50">
-                          <i class="fas fa-check"></i>
-                        </span>
-                        <span class="text">Salvar</span>
-                      </button>
-                    </form>
-                  </div>
+                      <div class="col-sm-6">
+                        <div class="custom-control custom-checkbox small">
+                          <input
+                            type="checkbox"
+                            class="custom-control-input"
+                            id="chkAdmin"
+                          />
+                          <!-- prettier-ignore -->
+                          <label for="chkAdmin" class="custom-control-label">Administrador</label>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <a href="#" class="btn btn-primary btn-icon-split">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="text">Salvar</span>
+                    </a>
+                  </form>
                 </div>
-              </form>
+              </div>
             </div>
 
             <!-- User DataTable -->
@@ -307,29 +297,39 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {% for user in users %}
                       <tr>
-                        <td>{{user.name}}</td>
-                        <td>{{user.email}}</td>
+                        <td>Bucky Barnes</td>
+                        <td>winter.soldier@avengers.com</td>
                         <td>
-                          {% if user.isAdmin == "on" %}
                           <i class="far fa-check-square"></i>
-                          {% else %}
-                          <i class="far fa-square"></i>
-                          {% endif %}
                         </td>
                         <td>
-                          {% if user.isActivated == "on" %}
                           <i class="far fa-check-square"></i>
-                          {% else %}
-                          <i class="far fa-square"></i>
-                          {% endif %}
                         </td>
                         <td>
                           <a href="#"><i class="fas fa-pencil-alt"></i></a>
                         </td>
                       </tr>
-                      {% endfor %}
+                      <tr>
+                        <td>Steve Rogers</td>
+                        <td>capitain.america@avengers.com</td>
+                        <td><i class="far fa-square"></i></td>
+                        <td><i class="far fa-square"></i></td>
+                        <td>
+                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Sam Wilson</td>
+                        <td>falcon@avengers.com</td>
+                        <td><i class="far fa-square"></i></td>
+                        <td>
+                          <i class="far fa-check-square"></i>
+                        </td>
+                        <td>
+                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -399,20 +399,20 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/vendor/jquery/jquery.min.js"></script>
+    <script src="../../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript -->
-    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages -->
-    <script src="/js/sb-admin-2.min.js"></script>
+    <script src="../../public/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../../public/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/js/demo/datatables-demo.js"></script>
+    <script src="../../public/js/demo/datatables-demo.js"></script>
   </body>
 </html>
