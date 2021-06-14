@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Usuários - iLunch</title>
+    <title>Cardápios - iLunch</title>
 
     <!-- Custom fonts -->
     <link
@@ -64,16 +64,16 @@
         <div class="sidebar-heading">Admin.</div>
 
         <!-- Nav Item - Users -->
-        <li class="nav-item active">
-          <a href="#" class="nav-link">
+        <li class="nav-item">
+          <a href="users.html" class="nav-link">
             <i class="fas fa-users"></i>
             <span>Usuários</span>
           </a>
         </li>
 
         <!-- Nav Item - Menu -->
-        <li class="nav-item">
-          <a href="menus.html" class="nav-link">
+        <li class="nav-item active">
+          <a href="#" class="nav-link">
             <i class="fas fa-book-open"></i>
             <span>Cardápios</span>
           </a>
@@ -184,10 +184,10 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Usuários</h1>
+            <h1 class="h3 mb-4 text-gray-800">Cardápios</h1>
             <hr />
 
-            <!-- Collapsable User Card -->
+            <!-- Collapsable Menu Card -->
             <div class="card shadow mb-4">
               <!-- Card Header - Accordion -->
               <a
@@ -208,56 +208,19 @@
               <div class="collapse show" id="collapseCardExample">
                 <div class="card-body">
                   <form class="user">
-                    <div class="form-group row">
-                      <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input
-                          type="text"
-                          class="form-control form-control-user"
-                          id="txtFirstName"
-                          placeholder="Nome"
-                        />
-                      </div>
-                      <div class="col-sm-6">
-                        <input
-                          type="text"
-                          class="form-control form-control-user"
-                          id="txtLastName"
-                          placeholder="Sobrenome"
-                        />
-                      </div>
-                    </div>
                     <div class="form-group">
                       <input
-                        type="email"
+                        type="date"
                         class="form-control form-control-user"
-                        id="txtEmail"
-                        placeholder="E-mail"
+                        id="txtDate"
                       />
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-6 mb-3 mb-sm-0">
-                        <div class="custom-control custom-checkbox small">
-                          <input
-                            type="checkbox"
-                            class="custom-control-input"
-                            id="chkActive"
-                            checked
-                          />
-                          <!-- prettier-ignore -->
-                          <label for="chkActive" class="custom-control-label">Ativo</label>
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="custom-control custom-checkbox small">
-                          <input
-                            type="checkbox"
-                            class="custom-control-input"
-                            id="chkAdmin"
-                          />
-                          <!-- prettier-ignore -->
-                          <label for="chkAdmin" class="custom-control-label">Administrador</label>
-                        </div>
-                      </div>
+                      <br />
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="txtMenu"
+                        placeholder="Digite as opções do cardápio separadas por vírgula..."
+                      />
                     </div>
                     <hr />
                     <a href="#" class="btn btn-primary btn-icon-split">
@@ -266,17 +229,23 @@
                       </span>
                       <span class="text">Salvar</span>
                     </a>
+                    <a href="#" class="btn btn-danger btn-icon-split">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-trash-alt"></i>
+                      </span>
+                      <span class="text">Excluir</span>
+                    </a>
                   </form>
                 </div>
               </div>
             </div>
 
-            <!-- User DataTable -->
+            <!-- Oprion DataTable -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">
                   <i class="fas fa-list-ul"></i>
-                  &nbsp;Usuários
+                  &nbsp;Cardápios
                 </h6>
               </div>
               <div class="card-body">
@@ -289,42 +258,18 @@
                   >
                     <thead>
                       <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Admin.</th>
-                        <th>Ativo</th>
+                        <th>Data</th>
+                        <th>Cardápio</th>
                         <th>Editar</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Bucky Barnes</td>
-                        <td>winter.soldier@avengers.com</td>
+                        <td>29/03/2021</td>
                         <td>
-                          <i class="far fa-check-square"></i>
-                        </td>
-                        <td>
-                          <i class="far fa-check-square"></i>
-                        </td>
-                        <td>
-                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Steve Rogers</td>
-                        <td>capitain.america@avengers.com</td>
-                        <td><i class="far fa-square"></i></td>
-                        <td><i class="far fa-square"></i></td>
-                        <td>
-                          <a href="#"><i class="fas fa-pencil-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sam Wilson</td>
-                        <td>falcon@avengers.com</td>
-                        <td><i class="far fa-square"></i></td>
-                        <td>
-                          <i class="far fa-check-square"></i>
+                          Macarronada e frango assado, Filé de frango à
+                          milanesa, Filé de frango grelhado, Omelete de presunto
+                          e queijo, Bife acebolado, Salsicha ao molho
                         </td>
                         <td>
                           <a href="#"><i class="fas fa-pencil-alt"></i></a>

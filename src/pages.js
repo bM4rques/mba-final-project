@@ -1,5 +1,6 @@
 const Database = require('./database/db');
 
+// Users page
 async function pageUsers(req, res) {
   const query = `
     SELECT users.*
@@ -42,4 +43,42 @@ async function saveUser(req, res) {
   }
 }
 
-module.exports = { pageUsers, saveUser };
+// Menus page
+async function pageMenus(req, res) {
+  const query = `
+    SELECT menus.*
+    FROM menus
+  `;
+
+  try {
+    const db = await Database;
+    const menus = await db.all(query);
+
+    return res.render('menus.html', { menus });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function saveMenu(req, res) {
+  const createMenu = require('./database/createMenu');
+
+  const menuValue = {
+    date: req.body.date,
+    options: req.body.options,
+  };
+
+  try {
+    const db = await Database;
+    await createMenu(db, { menuValue });
+
+    let queryString = '?date=' + req.body.date;
+    queryString += '&options=' + req.body.options;
+
+    return res.redirect('/menus' + queryString);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { pageUsers, saveUser, pageMenus, saveMenu };
